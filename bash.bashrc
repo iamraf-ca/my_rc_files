@@ -1,5 +1,9 @@
 # /etc/bash.bashrc
 #
+
+# Don't forget to uncomment the line #force_color_prompt=yes at ~/.bashrc 
+
+
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 #
 # This file is sourced by all *interactive* bash shells on startup,
