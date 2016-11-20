@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script for install my softwares after a fresh install of lubuntu
+
 # Beginning
 clear
 echo 
@@ -69,7 +69,7 @@ echo setting files for Bash, Vim e Terminator
 # Adicionar aqui minha configuracao do vim no github igual abaixo
 
 echo Setting Bash
-wget -O ~/.bashrc "https://github.com/toguko/my_rc_files/blob/master/bash.bashrc"
+wget -O ~/.bashrc "https://raw.githubusercontent.com/toguko/my_rc_files/master/bash.bashrc"
 wget -O ~/.dir_colors "https://raw.githubusercontent.com/toguko/my_rc_files/master/.dir_colors"
 wget -O ~/.bash_profile "https://raw.githubusercontent.com/toguko/my_rc_files/master/.bash_profile"
 echo 'Testing if .bashrc have force_color_prompt=yes'
