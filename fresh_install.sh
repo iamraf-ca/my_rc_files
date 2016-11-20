@@ -1,12 +1,11 @@
 #!/bin/bash
-
+# Script for install my softwares after a fresh install of lubuntu
 # Beginning
 clear
 echo 
 echo ====================
 echo Beginning the process
 echo ====================
-
 
 echo setting variables 
 
@@ -91,7 +90,6 @@ rm -rf ~/Templates
 rm -rf ~/Videos
 rm -rf ~/Music
 rm -rf ~/Pictures
-
 
 # Prompt for a reboot
 echo  ALL FINISHED
