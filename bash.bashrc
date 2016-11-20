@@ -3,7 +3,6 @@
 
 # Don't forget to uncomment the line #force_color_prompt=yes at ~/.bashrc 
 
-
 # =============================================================== #
 #
 # PERSONAL $HOME/.bashrc FILE for bash-3.0 (or later)
