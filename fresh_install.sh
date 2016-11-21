@@ -11,7 +11,7 @@ echo setting variables
 
 # Packege to Install
 echo Developers packages - SET
-developers='virtualbox virtualbox-guest-additions-iso git gitk gitg vim vim-python-mode vim-addon-* terminator htop python-pip p7zip*'
+developers='virtualbox virtualbox-guest-additions-iso git gitk gitg vim vim-python-jedi vim-autopep8 vim-python-mode vim-addon-* terminator htop python-pip p7zip*'
 
 echo Network packages - SET
 network='samba ssh remmina'
