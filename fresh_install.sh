@@ -54,6 +54,8 @@ sudo apt-get -y --force-yes remove $packages_remove
 echo Installing all Packages
 #Instaling packages
 sudo apt -y --force-yes install $developers
+echo Instaling pip packages
+sudo -H pip install virtualenv
 sudo apt -y --force-yes install $network
 sudo apt -y --force-yes install $internet
 sudo apt -y --force-yes install $video
