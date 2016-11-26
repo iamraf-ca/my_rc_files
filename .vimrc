@@ -1,6 +1,7 @@
 "***************************
 "" Vim-PLug core
 "***************************
+
 if has('vim_starting')
   set nocompatible               " Be iMproved
 endif
@@ -25,6 +26,7 @@ call plug#begin(expand('~/.vim/plugged'))
 "***************************
 "" Plug install packages
 "***************************
+
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
@@ -91,9 +93,10 @@ call plug#end()
 filetype plugin indent on
 
 
-"*****************************************************************************
+"***************************
 "" Basic Setup
-"*****************************************************************************"
+"***************************
+
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -137,9 +140,9 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
-"*****************************************************************************
+"***************************
 "" Visual Settings
-"*****************************************************************************
+"***************************
 syntax on
 set ruler
 set number
@@ -214,9 +217,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 
-"*****************************************************************************
+"***************************
 "" Abbreviations
-"*****************************************************************************
+"***************************
 "" no one is really happy until you have this shortcuts
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -258,9 +261,9 @@ else
   nnoremap <silent> <leader>sh :VimShellCreate<CR>
 endif
 
-"*****************************************************************************
+"***************************
 "" Functions
-"*****************************************************************************
+"***************************
 if !exists('*s:setupWrapping')
   function s:setupWrapping()
     set wrap
@@ -269,9 +272,9 @@ if !exists('*s:setupWrapping')
   endfunction
 endif
 
-"*****************************************************************************
+"***************************
 "" Autocmd Rules
-"*****************************************************************************
+"***************************
 "" The PC is fast enough, do syntax highlight syncing from start
 augroup vimrc-sync-fromstart
   autocmd!
@@ -299,9 +302,9 @@ augroup END
 
 set autoread
 
-"*****************************************************************************
+"***************************
 "" Mappings
-"*****************************************************************************
+"***************************
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
@@ -425,9 +428,9 @@ vnoremap K :m '<-2<CR>gv=gv
 "" Open current line on GitHub
 nnoremap <Leader>o :.Gbrowse<CR>
 
-"*****************************************************************************
+"***************************
 "" Custom configs
-"*****************************************************************************
+"***************************
 
 " python
 " vim-python
@@ -456,17 +459,17 @@ let g:syntastic_python_checkers=['python', 'flake8']
 let g:airline#extensions#virtualenv#enabled = 1
 
 
-"*****************************************************************************
-"*****************************************************************************
+"***************************
+"***************************
 
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-"*****************************************************************************
+"***************************
 "" Convenience variables
-"*****************************************************************************
+"***************************
 
 " vim-airline
 if !exists('g:airline_symbols')
