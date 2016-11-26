@@ -1,6 +1,6 @@
-"*****************************************************************************
+"***************************
 "" Vim-PLug core
-"*****************************************************************************
+"***************************
 if has('vim_starting')
   set nocompatible               " Be iMproved
 endif
@@ -22,9 +22,9 @@ endif
 " Required:
 call plug#begin(expand('~/.vim/plugged'))
 
-"*****************************************************************************
+"***************************
 "" Plug install packages
-"*****************************************************************************
+"***************************
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
@@ -503,4 +503,3 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-
