@@ -95,6 +95,8 @@ sudo -H pip install flake8
 sudo -H pip install flake8-docstrings
 apm install linter-flake8
 apm install atom-django
+apm install autoclose-html
+
 
 # Prompt for a reboot
 echo  ALL FINISHED
