@@ -40,13 +40,6 @@ echo Updating APT
 sudo apt-get -y --force-yes update
 sudo apt-get -y --force-yes upgrade
 
-echo Download and Setting Dropbox
-# Dropbox
-cd ~ && wget -O dropbox "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf
-wget -O ~/dropbox.py "https://raw.githubusercontent.com/toguko/my_rc_files/master/dropbox.py"
-python ~/dropbox.py start -i
-python ~/dropbox.py autostart -y
-
 echo Removing packages
 #Remove packages
 sudo apt-get -y --force-yes remove $packages_remove
@@ -64,6 +57,13 @@ sudo apt -y --force-yes install $backup
 echo Clean everything
 # Clean everything
 sudo apt-get -y --force-yes autoremove && sudo apt-get clean
+
+echo Download and Setting Dropbox
+# Dropbox
+cd ~ && wget -O dropbox "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf
+wget -O ~/dropbox.py "https://raw.githubusercontent.com/toguko/my_rc_files/master/dropbox.py"
+python ~/dropbox.py start -i
+python ~/dropbox.py autostart -y
 
 echo setting files for Bash, Vim e Terminator
 # Dotfiles section
