@@ -1,6 +1,5 @@
-# put this file at ~/.config/terminator named as "config"
-
 [global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   suppress_multiple_term_dialog = True
 [keybindings]
 [layouts]
@@ -23,12 +22,14 @@
       ratio = 0.5
       type = HPaned
     [[[terminal2]]]
+      command = ""
       order = 0
       parent = child1
       profile = default
       type = Terminal
       uuid = 47ded781-382c-49f5-af1f-2b765b94c49e
     [[[terminal3]]]
+      command = ""
       order = 1
       parent = child1
       profile = default
@@ -37,7 +38,8 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.8
+    background_color = "#002b36"
+    background_darkness = 0.99
     background_image = None
     background_type = transparent
-    
+    foreground_color = "#839496"
