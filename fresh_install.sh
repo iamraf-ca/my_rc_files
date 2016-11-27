@@ -13,6 +13,9 @@ echo setting variables
 echo Developers packages - SET
 developers='virtualbox virtualbox-guest-additions-iso git gitk gitg vim vim-python-jedi vim-autopep8 vim-addon-* terminator htop python-pip p7zip* unrar curl python3-pip'
 
+echo Ubuntu packages - SET
+ubuntu='unity-tweak-tool gnome-tweak-tool'
+
 echo Network packages - SET
 network='samba ssh remmina'
 
@@ -54,6 +57,7 @@ sudo apt -y --force-yes install $network
 sudo apt -y --force-yes install $internet
 sudo apt -y --force-yes install $video
 sudo apt -y --force-yes install $backup
+sudo apt -y --force-yes install $ubuntu
 
 echo Clean everything
 # Clean everything
