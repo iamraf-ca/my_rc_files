@@ -86,15 +86,6 @@ wget -O ~/.config/terminator/config "https://raw.githubusercontent.com/toguko/my
 echo Setting VIM
 wget -O ~/.vimrc "https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc"
 
-echo Erasing unused folders
-# Erase folders
-rm -rf ~/Documents
-rm -rf ~/Public
-rm -rf ~/Templates
-rm -rf ~/Videos
-rm -rf ~/Music
-rm -rf ~/Pictures
-
 # Prompt for a reboot
 echo  ALL FINISHED
 echo ====================
