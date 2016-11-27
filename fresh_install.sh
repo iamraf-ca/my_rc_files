@@ -11,7 +11,7 @@ echo setting variables
 
 # Packege to Install
 echo Developers packages - SET
-developers='virtualbox virtualbox-guest-additions-iso git gitk gitg vim vim-python-jedi vim-autopep8 vim-addon-* terminator htop python-pip p7zip* unrar curl python3-pip'
+developers='virtualbox virtualbox-guest-additions-iso git gitk gitg vim vim-python-jedi vim-autopep8 vim-addon-* terminator htop python-pip p7zip* unrar curl python3-pip atom'
 
 echo Ubuntu packages - SET
 ubuntu='unity-tweak-tool gnome-tweak-tool'
@@ -37,6 +37,8 @@ echo Setting Repositores - Google, SystemBack - SET
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo add-apt-repository -y ppa:nemh/systemback
+sudo add-apt-repository -y ppa:webupd8team/atom
+
 
 echo Updating APT
 # Basic update
@@ -87,8 +89,12 @@ echo Setting Terminator
 mkdir ~/.config/terminator
 wget -O ~/.config/terminator/config "https://raw.githubusercontent.com/toguko/my_rc_files/master/terminator_config"
 
-echo Setting VIM
-wget -O ~/.vimrc "https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc"
+echo Installing Atom stuffs
+apm install linter
+sudo -H pip install flake8
+sudo -H pip install flake8-docstrings
+apm install linter-flake8
+apm install atom-django
 
 # Prompt for a reboot
 echo  ALL FINISHED
