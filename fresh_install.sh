@@ -80,6 +80,7 @@ teste='cat ~/.bashrc | grep '# force_color_prompt=yes''
 if [ teste='# force_color_prompt=yes' ]; then echo force_color_prompt=yes >> ~/.bashrc; else echo "PULANDO"; fi
 
 echo Setting Terminator
+mkdir ~/.config/terminator
 wget -O ~/.config/terminator/config "https://raw.githubusercontent.com/toguko/my_rc_files/master/terminator_config"
 
 echo Setting VIM
