@@ -55,11 +55,11 @@ sudo apt -y --force-yes install $developers
 pip install --upgrade pip
 echo Instaling pip packages
 sudo -H pip install virtualenv
-sudo apt -y --force-yes install $network
-sudo apt -y --force-yes install $internet
-sudo apt -y --force-yes install $video
-sudo apt -y --force-yes install $backup
-sudo apt -y --force-yes install $ubuntu
+sudo apt-get -y --force-yes install $network
+sudo apt-get -y --force-yes install $internet
+sudo apt-get -y --force-yes install $video
+sudo apt-get -y --force-yes install $backup
+sudo apt-get -y --force-yes install $ubuntu
 
 echo Clean everything
 # Clean everything
