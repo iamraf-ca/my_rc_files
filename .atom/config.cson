@@ -1,0 +1,50 @@
+"*":
+  "autocomplete-python":
+    useKite: false
+    useSnippets: "all"
+  core:
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "linter-pylama"
+      "kite"
+      "floobits"
+      "python-jedi"
+    ]
+    telemetryConsent: "limited"
+  editor:
+    fontSize: 13
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "c91dd9a8-5763-48b3-9144-8cbb986eb11e"
+  "linter-pycodestyle":
+    maxLineLength: 100
+  "linter-ui-default":
+    panelHeight: 69
+    showPanel: true
+  "python-import-magic":
+    pythonPaths: "/home/toguko/wttd/.wttd/bin/python"
+    reindexOnSave: true
+  "python-iresolve":
+    iresolveExecutablePath: "/home/toguko/wttd/.wttd/bin/python"
+  "python-jedi": {}
+".django.python.source":
+  editor:
+    preferredLineLength: 801
+".python.source":
+  editor:
+    autoIndentOnPaste: true
+    showIndentGuide: true
+    softWrap: true
+".python.text.traceback":
+  editor:
+    preferredLineLength: 100
+dash:
+  filenames:
+    "*.py": [
+      "python3"
+    ]
+  grammars:
+    Python: [
+      "python3"
+    ]
