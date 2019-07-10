@@ -1,5 +1,0 @@
-# language-specific Tab triggers
-# you can add more triggers by changing `grammar` attribute valuse
-# https://atom.io/packages/django-templates
-# atom config to make django-templates package identify
-# .html files as django template
