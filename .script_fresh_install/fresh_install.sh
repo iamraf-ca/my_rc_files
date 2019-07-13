@@ -20,13 +20,14 @@ developers='git vim terminator htop p7zip* unrar curl zsh zeal insomnia httpie'
 virtualbox='virtualbox virtualbox-guest-additions-iso'
 office='libreoffice'
 python='python3-pip'
+python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
 network='ssh remmina'
 internet='google-chrome-stable browsh'
 video='vlc'
 apps='calibre ranger sxiv hexchat'
 vscode='apt-transport-https code'
 i3='i3, i3-wm i3blocks i3lock i3status'
-docker='docker-ce'
+docker='docker-ce apt-transport-https ca-certificates software-properties-common'
 
 # Cloning my repositories
 mkdir GITHUB
@@ -117,22 +118,15 @@ wget -O ~/dropbox.py "https://raw.githubusercontent.com/toguko/my_rc_files/maste
 python ~/dropbox.py start -i
 python ~/dropbox.py autostart -y
 
-echo Setting Bash
-wget -O ~/.bashrc "https://raw.githubusercontent.com/toguko/my_rc_files/master/bash.bashrc"
-wget -O ~/.dir_colors "https://raw.githubusercontent.com/toguko/my_rc_files/master/.dir_colors"
-wget -O ~/.bash_profile "https://raw.githubusercontent.com/toguko/my_rc_files/master/.bash_profile"
-echo 'Testing if .bashrc have force_color_prompt=yes'
-teste='cat ~/.bashrc | grep '# force_color_prompt=yes''
-if [ teste='# force_color_prompt=yes' ]; then echo force_color_prompt=yes >> ~/.bashrc; else echo "PULANDO"; fi
-
-echo Setting Terminator
-mkdir ~/.config/terminator
-wget -O ~/.config/terminator/config "https://raw.githubusercontent.com/toguko/my_rc_files/master/terminator_config"
-
-echo setting files for zsh, Vim, Terminator and VSCODE
 # Dotfiles section
 # This section is dedicated to the dot files (.bash, .vimrc...) installed in your home folder.
 # Adicionar aqui minha configuracao do vim no github igual o acima
+# I3 Config
+#wget -P ~/.config/.i3/
+# ZSH Config
+#wget -P ~/
+# Terminator Config
+curl -o ~/.config/terminator/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_fi      les/master/.config/terminator/config
 
 echo Clean everything
 # Clean everything
