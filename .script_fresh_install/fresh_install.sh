@@ -9,14 +9,13 @@ echo ====================
 
 # adding pause between commands
 # trap "set +x; sleep 5; set -x" DEBUG
-set -x  # show command
-trap read debug  # require a RETURN after each command executed
+#set -x  # show command
+#trap read debug  # require a RETURN after each command executed
 
 # Packages to Install
 echo Setting Packages to be installed 
 developers='git vim terminator htop p7zip* unrar curl zsh zeal insomnia httpie'
-virtualbox='virtualbox virtualbox-guest-additions-iso'
-office='libreoffice'
+virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
 python='python3-pip'
 python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
 network='ssh remmina'
@@ -48,17 +47,17 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" >$
 
+# adding Virtualbox 6
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
+
 echo Setting Insomnia API Client
 echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
     | sudo tee -a /etc/apt/sources.list.d/insomnia.list
 # Add public key used to verify code signature
 wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc \
     | sudo apt-key add -
-
-# Installing Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
-chsh -s /bin/zsh
-sudo usermod -s /usr/bin/zsh $(whoami)
 
 echo Updating system
 # Basic update
@@ -81,12 +80,15 @@ pip3 install --upgrade pip3
 echo Instaling pip packages
 sudo -H pip3 install virtualenv
 
+# Installing Oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
+chsh -s /bin/zsh
+sudo usermod -s /usr/bin/zsh $(whoami)
+
 echo Download and Setting Dropbox
 # Dropbox
-cd ~ && wget -O dropbox "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf
-wget -O ~/dropbox.py "https://raw.githubusercontent.com/toguko/my_rc_files/master/dropbox.py"
-python ~/dropbox.py start -i
-python ~/dropbox.py autostart -y
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+~/.dropbox-dist/dropboxd
 
 # Dotfiles section
 # This section is dedicated to the dot files (.bash, .vimrc...) installed in your home folder.
@@ -106,7 +108,6 @@ echo Clean everything
 # Clean everything
 sudo apt-get -y autoremove && sudo apt-get clean
 
-# Prompt for a reboot
 echo ====================
 echo  ALL FINISHED
 echo ====================
