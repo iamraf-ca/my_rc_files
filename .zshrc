@@ -77,7 +77,9 @@ ENABLE_CORRECTION="true"
 plugins=(git heroku command-not-found python pip github gnu-utils history-substring-search zsh-syntax-highlighting)
 
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
+source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
