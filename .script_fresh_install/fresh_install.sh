@@ -17,9 +17,9 @@ echo Setting Packages to be installed
 developers='git vim terminator htop p7zip* unrar curl zsh zeal insomnia httpie'
 virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
 python='python3-pip'
-python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
+#python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
 network='ssh remmina'
-internet='google-chrome-stable browsh'
+internet='google-chrome-stable lynx'
 video='vlc'
 apps='calibre ranger sxiv hexchat'
 vscode='apt-transport-https code'
@@ -45,7 +45,7 @@ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
 echo Setting Visual Studio Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" >$
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 # adding Virtualbox 6
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
@@ -76,8 +76,8 @@ sudo apt-get install -y $apps
 sudo apt-get install -y $vscode
 sudo apt-get install -y $i3
 sudo apt-get install -y $docker
-pip3 install --upgrade pip3
-echo Instaling pip packages
+sudo -H pip3 install --upgrade pip
+#echo Instaling pip packages
 sudo -H pip3 install virtualenv
 
 # Installing Oh-my-zsh
@@ -85,21 +85,27 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 chsh -s /bin/zsh
 sudo usermod -s /usr/bin/zsh $(whoami)
 
-echo Download and Setting Dropbox
+#echo Download and Setting Dropbox
 # Dropbox
-cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-~/.dropbox-dist/dropboxd
+#cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+#~/.dropbox-dist/dropboxd
 
 # Dotfiles section
 # This section is dedicated to the dot files (.bash, .vimrc...) installed in your home folder.
 # Adicionar aqui minha configuracao do vim no github igual o acima
 echo Copying I3WM Config
-curl -o ~/.config/i3/config https://github.com/toguko/my_rc_files/blob/master/.config/i3/config
-curl -o ~/.config/i3/i3blocks/i3blocks.conf https://github.com/toguko/my_rc_files/blob/master/.config/i3/i3blocks/i3blocks.conf
+curl -o ~/.config/i3/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/config
+curl -o ~/.config/i3/i3blocks/i3blocks.conf --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/i3blocks/i3blocks.conf
+
+
 echo Copying ZSH Config
 curl -o ~/.zshrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.zshrc
+
 echo Copying Terminator Config
 curl -o ~/.config/terminator/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/terminator/config
+
+echo Copying VIM Config
+curl -o ~/.vimrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc
 
 echo Add your user account to the docker group
 sudo usermod -aG docker $USER
