@@ -107,6 +107,9 @@ curl -o ~/.config/terminator/config --create-dirs https://raw.githubusercontent.
 echo Copying VIM Config
 curl -o ~/.vimrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
 echo Add your user account to the docker group
 sudo usermod -aG docker $USER
 
