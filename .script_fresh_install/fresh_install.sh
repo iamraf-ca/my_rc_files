@@ -13,8 +13,9 @@ echo ====================
 #trap read debug  # require a RETURN after each command executed
 
 # Packages to Install
-echo Setting Packages to be installed 
-developers='git vim terminator htop p7zip* unrar curl zsh zeal insomnia httpie'
+sudo apt-get install curl git
+echo Setting Packages to be installed
+developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie'
 virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
 python='python3-pip'
 #python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
