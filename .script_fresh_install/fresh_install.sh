@@ -36,6 +36,7 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
 mkdir GITHUB
 cd GITHUB
 curl -s https://api.github.com/users/toguko/repos | grep \"clone_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 cd ~/
 
 echo Setting up Repositories
