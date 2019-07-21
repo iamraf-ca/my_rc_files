@@ -15,7 +15,8 @@ echo ====================
 # Packages to Install
 sudo apt-get install curl git
 echo Setting Packages to be installed
-developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie'
+developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs'
+neovim='libjansson-dev ripgrep neovim'
 virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
 python='python3-pip'
 #python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
@@ -26,6 +27,10 @@ apps='calibre ranger sxiv hexchat'
 vscode='apt-transport-https code'
 i3='i3 i3-wm i3blocks i3lock i3status powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
 docker='docker-ce apt-transport-https ca-certificates software-properties-common gnupg-agent'
+gnome='chrome-gnome-shell'
+
+#adding nodejs on source
+curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
 
 # Cloning my repositories
 mkdir GITHUB
@@ -77,6 +82,8 @@ sudo apt-get install -y $apps
 sudo apt-get install -y $vscode
 sudo apt-get install -y $i3
 sudo apt-get install -y $docker
+sudo apt-get install -y $gnome
+sudo apt-get install -y $neovim
 sudo -H pip3 install --upgrade pip
 #echo Instaling pip packages
 sudo -H pip3 install virtualenv
