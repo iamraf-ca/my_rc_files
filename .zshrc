@@ -1,8 +1,44 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#
+##############################################################################
+# History Configuration
+##############################################################################
+HISTSIZE=100000             # How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     # Where to save history to disk
+SAVEHIST=$HISTSIZE          # Number of history entries to save to disk
+setopt share_history	    # Share History between open terminals
+
+setopt hist_ignore_all_dups # remove older duplicate entries from history
+setopt hist_reduce_blanks   # remove superfluous blanks from history items
+setopt inc_append_history   # save history entries as soon as they are entered
+setopt share_history	    # share history between different instances of the shell
+
+setopt auto_cd # cd by typing directory name if it's not a command
+
+setopt correct_all # autocorrect commands
+
+setopt auto_list # automatically list choices on ambiguous completion
+setopt auto_menu # automatically use menu completion
+setopt always_to_end # move cursor to end if word had one match
+
+zstyle ':completion:*' menu select # select completions with arrow keys
+zstyle ':completion:*' group-name '' # group results by category
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
+
+
+# Enabling autocompletion
+autoload -Uz compinit
+typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
+if [ $(date +'%j') != $updated_at ]; then
+  compinit -i
+else
+  compinit -C -i
+fi
+
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/toguko/.oh-my-zsh"
+export ZSH="/home/toguko/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -74,12 +110,23 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git heroku command-not-found python pip github gnu-utils history-substring-search zsh-syntax-highlighting)
+plugins=(
+command-not-found
+git
+github
+gnu-utils
+heroku
+history-substring-search
+pip
+python
+zsh-syntax-highlighting
+)
 
 
 #source $ZSH/oh-my-zsh.sh
 source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
 
@@ -107,3 +154,5 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="ls -lah --color=auto"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
