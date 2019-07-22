@@ -85,6 +85,7 @@ sudo apt-get install -y $i3
 sudo apt-get install -y $docker
 sudo apt-get install -y $gnome
 sudo apt-get install -y $neovim
+sudo snap install telegram-desktop
 sudo -H pip3 install --upgrade pip
 #echo Instaling pip packages
 sudo -H pip3 install virtualenv
