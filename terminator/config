@@ -1,0 +1,87 @@
+[global_config]
+  window_state = maximise
+[keybindings]
+  zoom_in = None
+  zoom_out = None
+  zoom_normal = None
+  new_tab = None
+  cycle_next = None
+  cycle_prev = None
+  go_next = None
+  go_prev = None
+  go_up = <Primary>Up
+  go_down = <Primary>Down
+  go_left = <Primary>Left
+  go_right = <Primary>Right
+  rotate_cw = None
+  rotate_ccw = None
+  split_horiz = None
+  split_vert = None
+  close_term = None
+  copy = <Primary><Shift>c
+  paste = <Primary><Shift>v
+  toggle_scrollbar = None
+  search = None
+  close_window = None
+  resize_up = None
+  resize_down = None
+  resize_left = None
+  resize_right = None
+  move_tab_right = None
+  move_tab_left = None
+  toggle_zoom = None
+  scaled_zoom = None
+  next_tab = None
+  prev_tab = None
+  reset = None
+  reset_clear = None
+  hide_window = None
+  group_all = None
+  ungroup_all = None
+  group_tab = None
+  ungroup_tab = None
+  new_window = None
+  new_terminator = None
+  broadcast_off = None
+  broadcast_group = None
+  broadcast_all = None
+  insert_number = None
+  insert_padded = None
+  edit_window_title = None
+  edit_tab_title = None
+  edit_terminal_title = None
+  layout_launcher = None
+  help = None
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    cursor_color = "#aaaaaa"
+    foreground_color = "#ebdbb2"
+    show_titlebar = False
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    copy_on_selection = True
+  [[Monokai]]
+    background_color = "#212121"
+    cursor_color = "#aaaaaa"
+    foreground_color = "#ffffff"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+  [[molokai]]
+    scrollbar_position = hidden
+    palette = "#181915:#7a0137:#498702:#c5bb63:#3465a4:#75507b:#4194b0:#d3d7cf:#45473c:#e00265:#6dca04:#e6db74:#1d71ca:#af5fff:#5cd1f8:#ffffff"
+    use_system_font = False
+    cursor_color = "#c20257"
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    font = DejaVu Sans Mono 9
+    background_color = "#121212"
+    scrollback_infinite = True
+[plugins]
