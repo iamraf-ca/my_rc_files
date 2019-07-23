@@ -34,6 +34,10 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
 
 # Cloning my repositories
 read -n 1 -s -r -p "It's time to copy your ssh key to ~/.ssh, after press any key to continue"
+chmod 400 ~/.ssh/id_rsa #adding permission only for my user
+ssh-add ~/.ssh/id_rsa #adding the my key to ssh agent
+git config --global user.email "toguko@gmail.com"
+git config --global user.name "Rafael 'Toguko' Dias"
 mkdir GITHUB
 cd GITHUB
 curl -s https://api.github.com/users/toguko/repos | grep \"ssh_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
