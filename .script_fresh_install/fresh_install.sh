@@ -15,7 +15,7 @@ echo ====================
 # Packages to Install
 sudo apt-get install curl git
 echo Setting Packages to be installed
-developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs'
+developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs xclip'
 neovim='libjansson-dev ripgrep neovim'
 virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
 python='python3-pip'
@@ -33,9 +33,11 @@ gnome='chrome-gnome-shell'
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
 
 # Cloning my repositories
+read -n 1 -s -r -p "It's time to copy your ssh key to ~/.ssh, after press any key to continue"
 mkdir GITHUB
 cd GITHUB
-curl -s https://api.github.com/users/toguko/repos | grep \"clone_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
+curl -s https://api.github.com/users/toguko/repos | grep \"ssh_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
+#clonning zsh-autosuggestion
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 cd ~/
 
