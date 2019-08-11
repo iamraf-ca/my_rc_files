@@ -15,7 +15,7 @@ echo ====================
 # Packages to Install
 sudo apt-get install curl git
 echo Setting Packages to be installed
-developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs xclip'
+developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs xclip yarn'
 neovim='libjansson-dev ripgrep neovim'
 virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
 python='python3-pip'
@@ -29,8 +29,12 @@ i3='i3 i3-wm i3blocks i3lock i3status powerline fonts-powerline zsh-theme-powerl
 docker='docker-ce apt-transport-https ca-certificates software-properties-common gnupg-agent'
 gnome='chrome-gnome-shell'
 
-#adding nodejs on source
+#adding nodejs on source list
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
+
+#adding yarn on source list
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 # Cloning my repositories
 read -n 1 -s -r -p "It's time to copy your ssh key to ~/.ssh, after press any key to continue"
