@@ -7,7 +7,7 @@ echo ====================
 echo Beginning the process
 echo ====================
 
-# adding pause between commands
+# Adding pause between commands
 # trap "set +x; sleep 5; set -x" DEBUG
 #set -x  # show command
 #trap read debug  # require a RETURN after each command executed
@@ -15,7 +15,7 @@ echo ====================
 # Packages to Install
 sudo apt-get install curl git
 echo Setting Packages to be installed
-developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs xclip yarn'
+developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs xclip yarn balena-etcher-electron'
 neovim='libjansson-dev ripgrep neovim'
 virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
 python='python3-pip'
@@ -29,12 +29,16 @@ i3='i3 i3-wm i3blocks i3lock i3status powerline fonts-powerline zsh-theme-powerl
 docker='docker-ce apt-transport-https ca-certificates software-properties-common gnupg-agent'
 gnome='chrome-gnome-shell'
 
-#adding nodejs on source list
+# Adding nodejs on source list
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
 
-#adding yarn on source list
+# Adding yarn on source list
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+# Adding Balena Etcher on source list
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
 
 # Cloning my repositories
 read -n 1 -s -r -p "It's time to copy your ssh key to ~/.ssh, after press any key to continue"
@@ -45,7 +49,7 @@ git config --global user.name "Rafael 'Toguko' Dias"
 mkdir GITHUB
 cd GITHUB
 curl -s https://api.github.com/users/toguko/repos | grep \"ssh_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
-#clonning zsh-autosuggestion
+# Clonning zsh-autosuggestion
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 cd ~/
 
@@ -58,7 +62,7 @@ echo Setting Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
-# adding Vscode
+# Adding Vscode
 echo Setting Visual Studio Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
