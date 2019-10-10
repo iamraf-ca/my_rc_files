@@ -28,6 +28,7 @@ vscode='apt-transport-https code'
 i3='i3 i3-wm i3blocks i3lock i3status powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
 docker='docker-ce apt-transport-https ca-certificates software-properties-common gnupg-agent'
 gnome='chrome-gnome-shell'
+vpn='nordvpn'
 
 # Adding nodejs on source list
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
@@ -68,6 +69,12 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
+# Adding NordVPN
+cd Download
+sudo wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
+sudo dpkg -i nordvpn-release_1.0.0_all.deb
+cd ~/
+
 # adding Virtualbox 6
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
@@ -99,7 +106,9 @@ sudo apt-get install -y $i3
 sudo apt-get install -y $docker
 sudo apt-get install -y $gnome
 sudo apt-get install -y $neovim
+sudo apt-get install -y $vpn
 sudo snap install telegram-desktop
+sudo snap install slack --classic 
 sudo -H pip3 install --upgrade pip
 #echo Instaling pip packages
 sudo -H pip3 install virtualenv
