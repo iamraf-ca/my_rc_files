@@ -15,12 +15,12 @@ echo ====================
 # Packages to Install
 sudo apt-get install curl git
 echo Setting Packages to be installed
-developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs xclip yarn balena-etcher-electron'
+developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs xclip yarn balena-etcher-electron fonts-powerline python3-venv'
 neovim='libjansson-dev ripgrep neovim'
 virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
 python='python3-pip'
 #python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
-network='ssh remmina'
+network='ssh remmina net-tools'
 internet='google-chrome-stable lynx'
 video='vlc'
 apps='calibre ranger sxiv hexchat'
@@ -149,6 +149,10 @@ sudo usermod -aG docker $USER
 echo Clean everything
 # Clean everything
 sudo apt-get -y autoremove && sudo apt-get clean
+
+echo Instaling snaps packages
+sudo snap install cheat kdenlive --classic
+
 
 echo ====================
 echo  ALL FINISHED
