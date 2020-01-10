@@ -47,7 +47,7 @@ export ZSH="/home/toguko/.oh-my-zsh"
 #ZSH_THEME="agnoster"
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs docker_machine)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs docker_machine virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
@@ -120,7 +120,10 @@ history-substring-search
 pip
 python
 zsh-syntax-highlighting
+virtualenv
+virtualenvwrapper
 )
+
 
 
 #source $ZSH/oh-my-zsh.sh
@@ -153,6 +156,5 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="ls -lah --color=auto"
+alias ls='ls -lah --color=auto'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
