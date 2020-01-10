@@ -1,34 +1,33 @@
-#!/bin/bash
-
+!/bin/bash
+#
+# My basic post install procedure after ubuntu intalation
+#
+ 
 # Beginning
 clear
 echo 
-echo ====================
+echo =====================
 echo Beginning the process
-echo ====================
+echo =====================
 
-# Adding pause between commands
-# trap "set +x; sleep 5; set -x" DEBUG
+# Enabling the 3 lines above will be required a RETURN before each command 
+#trap "set +x; sleep 5; set -x" DEBUG # Adding pause between commands
 #set -x  # show command
 #trap read debug  # require a RETURN after each command executed
 
 # Packages to Install
-sudo apt-get install curl git
+sudo apt-get install -y curl git
 echo Setting Packages to be installed
-developers='git vim terminator htop p7zip* unrar zsh zeal insomnia httpie gcc g++ make ctags nodejs xclip yarn balena-etcher-electron fonts-powerline python3-venv'
-neovim='libjansson-dev ripgrep neovim'
-virtualbox='virtualbox-6.0 virtualbox-guest-additions-iso'
-python='python3-pip'
-#python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
+developers='vim terminator htop p7zip-full zsh insomnia httpie gcc g++ make ctags python3-pip python3-venv nodejs yarn'
+zsh='zsh powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
+python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
 network='ssh remmina net-tools'
-internet='google-chrome-stable lynx'
 video='vlc'
-apps='calibre ranger sxiv hexchat'
-vscode='apt-transport-https code'
+apps='calibre ranger sxiv hexchat chromium-browser google-chrome-stable'
 i3='i3 i3-wm i3blocks i3lock i3status powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
-docker='docker-ce apt-transport-https ca-certificates software-properties-common gnupg-agent'
-gnome='chrome-gnome-shell'
+docker='apt-transport-https ca-certificates software-properties-common gnupg-agent docker-ce'
 vpn='nordvpn'
+snaps='code'
 
 # Adding nodejs on source list
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
@@ -57,17 +56,17 @@ cd ~/
 echo Setting up Repositories
 echo Setting DOCKER
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable edge test"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs)  stable"
 
 echo Setting Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
 # Adding Vscode
-echo Setting Visual Studio Code
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+#echo Setting Visual Studio Code
+#curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+#sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+#sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 # Adding NordVPN
 cd Download
@@ -76,9 +75,9 @@ sudo dpkg -i nordvpn-release_1.0.0_all.deb
 cd ~/
 
 # adding Virtualbox 6
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
+#wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+#wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+#sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
 
 echo Setting Insomnia API Client
 echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
@@ -107,9 +106,9 @@ sudo apt-get install -y $docker
 sudo apt-get install -y $gnome
 sudo apt-get install -y $neovim
 sudo apt-get install -y $vpn
-sudo snap install telegram-desktop
-sudo snap install slack --classic 
-sudo -H pip3 install --upgrade pip
+sudo snap install telegram-desktop cheat kdenlive postman obs-studio
+sudo snap install slack code --classic 
+
 #echo Instaling pip packages
 sudo -H pip3 install virtualenv
 
@@ -119,40 +118,38 @@ chsh -s /bin/zsh
 sudo usermod -s /usr/bin/zsh $(whoami)
 
 #echo Download and Setting Dropbox
-# Dropbox
+## Dropbox
 #cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 #~/.dropbox-dist/dropboxd
 
 # Dotfiles section
 # This section is dedicated to the dot files (.bash, .vimrc...) installed in your home folder.
 # Adicionar aqui minha configuracao do vim no github igual o acima
-echo Copying I3WM Config
-curl -o ~/.config/i3/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/config
-curl -o ~/.config/i3/i3blocks/i3blocks.conf --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/i3blocks/i3blocks.conf
+#echo Copying I3WM Config
+#curl -o ~/.config/i3/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/config
+#curl -o ~/.config/i3/i3blocks/i3blocks.conf --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/i3blocks/i3blocks.conf
 
 
-echo Copying ZSH Config
-curl -o ~/.zshrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.zshrc
+#echo Copying ZSH Config
+#curl -o ~/.zshrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.zshrc
 
-echo Copying Terminator Config
-curl -o ~/.config/terminator/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/terminator/config
+#echo Copying Terminator Config
+#curl -o ~/.config/terminator/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/terminator/config
 
-echo Copying VIM Config
-curl -o ~/.vimrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc
+#echo Copying VIM Config
+#curl -o ~/.vimrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#vim +PluginInstall +qall
 
-echo Add your user account to the docker group
+echo Add your user account to the docker group and to start on boot
+sudo groupadd docker
 sudo usermod -aG docker $USER
+sudo systemctl enable docker
 
 echo Clean everything
 # Clean everything
 sudo apt-get -y autoremove && sudo apt-get clean
-
-echo Instaling snaps packages
-sudo snap install cheat kdenlive --classic
-
 
 echo ====================
 echo  ALL FINISHED
