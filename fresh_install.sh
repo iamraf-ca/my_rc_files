@@ -62,29 +62,11 @@ echo Setting Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
-# Adding Vscode
-#echo Setting Visual Studio Code
-#curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-#sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-#sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-
 # Adding NordVPN
 cd Download
 sudo wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i nordvpn-release_1.0.0_all.deb
 cd ~/
-
-# adding Virtualbox 6
-#wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-#wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-#sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
-
-echo Setting Insomnia API Client
-echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
-    | sudo tee -a /etc/apt/sources.list.d/insomnia.list
-# Add public key used to verify code signature
-wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc \
-    | sudo apt-key add -
 
 echo Updating system
 # Basic update
@@ -106,8 +88,10 @@ sudo apt-get install -y $docker
 sudo apt-get install -y $gnome
 sudo apt-get install -y $neovim
 sudo apt-get install -y $vpn
-sudo snap install telegram-desktop cheat kdenlive postman obs-studio
-sudo snap install slack code --classic 
+sudo snap install telegram-desktop cheat kdenlive postman obs-studio insomnia remmina 0ad supertuxkart
+sudo snap install slack code skype --classic
+sudo snap install code --classic
+sudo snap install skype --classic
 
 #echo Instaling pip packages
 sudo -H pip3 install virtualenv
