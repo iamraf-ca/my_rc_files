@@ -89,7 +89,7 @@ sudo apt-get install -y $gnome
 sudo apt-get install -y $neovim
 sudo apt-get install -y $vpn
 sudo snap install telegram-desktop cheat kdenlive postman obs-studio insomnia remmina 0ad supertuxkart
-sudo snap install slack code skype --classic
+sudo snap install slack --classic
 sudo snap install code --classic
 sudo snap install skype --classic
 
@@ -114,17 +114,17 @@ sudo usermod -s /usr/bin/zsh $(whoami)
 #curl -o ~/.config/i3/i3blocks/i3blocks.conf --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/i3blocks/i3blocks.conf
 
 
-#echo Copying ZSH Config
-#curl -o ~/.zshrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.zshrc
+echo Copying ZSH Config
+curl -o ~/.zshrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.zshrc
 
 #echo Copying Terminator Config
 #curl -o ~/.config/terminator/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/terminator/config
 
-#echo Copying VIM Config
-#curl -o ~/.vimrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc
+echo Copying VIM Config
+curl -o ~/.vimrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc
 
-#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#vim +PluginInstall +qall
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 echo Add your user account to the docker group and to start on boot
 sudo groupadd docker
