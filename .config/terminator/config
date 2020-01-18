@@ -1,87 +1,77 @@
 [global_config]
-  window_state = maximise
+  title_inactive_bg_color = "#4C566A"
+  title_inactive_fg_color = "#D8DEE9"
+  title_receive_bg_color = "#8FBCBB"
+  title_receive_fg_color = "#2E3440"
+  title_transmit_bg_color = "#88C0D0"
+  title_transmit_fg_color = "#2E3440"
   borderless = True
+  window_state = maximise
 [keybindings]
-  zoom_in = None
-  zoom_out = None
-  zoom_normal = None
-  new_tab = None
+  broadcast_all = None
+  broadcast_group = None
+  broadcast_off = None
+  close_term = None
+  close_window = None
+  copy = <Primary><Shift>c
   cycle_next = None
   cycle_prev = None
-  go_next = None
-  go_prev = None
-  go_up = None
+  edit_tab_title = None
+  edit_terminal_title = None
+  edit_window_title = None
   go_down = None
   go_left = None
+  go_next = None
+  go_prev = None
   go_right = None
-  rotate_cw = None
-  rotate_ccw = None
-  split_horiz = None
-  split_vert = None
-  close_term = None
-  copy = <Primary><Shift>c
-  paste = <Primary><Shift>v
-  toggle_scrollbar = None
-  search = None
-  close_window = None
-  resize_up = None
-  resize_down = None
-  resize_left = None
-  resize_right = None
-  move_tab_right = None
+  go_up = None
+  group_all = None
+  group_tab = None
+  help = None
+  hide_window = None
+  insert_number = None
+  insert_padded = None
+  layout_launcher = None
   move_tab_left = None
-  toggle_zoom = None
-  scaled_zoom = None
+  move_tab_right = None
+  new_tab = None
+  new_terminator = None
+  new_window = None
   next_tab = None
+  paste = <Primary><Shift>v
   prev_tab = None
   reset = None
   reset_clear = None
-  hide_window = None
-  group_all = None
+  resize_down = None
+  resize_left = None
+  resize_right = None
+  resize_up = None
+  rotate_ccw = None
+  rotate_cw = None
+  scaled_zoom = None
+  search = None
+  split_horiz = None
+  split_vert = None
+  toggle_scrollbar = None
+  toggle_zoom = None
   ungroup_all = None
-  group_tab = None
   ungroup_tab = None
-  new_window = None
-  new_terminator = None
-  broadcast_off = None
-  broadcast_group = None
-  broadcast_all = None
-  insert_number = None
-  insert_padded = None
-  edit_window_title = None
-  edit_tab_title = None
-  edit_terminal_title = None
-  layout_launcher = None
-  help = None
-[profiles]
-  [[default]]
-    background_color = "#282828"
-    cursor_color = "#aaaaaa"
-    foreground_color = "#ebdbb2"
-    show_titlebar = False
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-  [[Monokai]]
-    background_color = "#212121"
-    cursor_color = "#aaaaaa"
-    foreground_color = "#ffffff"
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+  zoom_in = None
+  zoom_normal = None
+  zoom_out = None
 [layouts]
   [[default]]
-    [[[window0]]]
-      type = Window
-      parent = ""
     [[[child1]]]
-      type = Terminal
       parent = window0
       profile = default
-  [[molokai]]
-    scrollbar_position = hidden
-    palette = "#181915:#7a0137:#498702:#c5bb63:#3465a4:#75507b:#4194b0:#d3d7cf:#45473c:#e00265:#6dca04:#e6db74:#1d71ca:#af5fff:#5cd1f8:#ffffff"
-    use_system_font = False
-    cursor_color = "#c20257"
-    foreground_color = "#ffffff"
-    show_titlebar = False
-    font = DejaVu Sans Mono 9
-    background_color = "#121212"
-    scrollback_infinite = True
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#2E3440"
+    cursor_color = "#D8DEE9"
+    foreground_color = "#D8DEE9"
+    palette = "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#8FBCBB:#ECEFF4"
