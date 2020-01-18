@@ -18,9 +18,9 @@ echo =====================
 # Packages to Install
 sudo apt-get install -y curl git
 echo Setting Packages to be installed
-developers='vim terminator htop p7zip-full zsh insomnia httpie gcc g++ make ctags python3-pip python3-venv nodejs yarn'
+developers='vim terminator htop p7zip-full zsh insomnia httpie gcc g++ make cmake ctags python3-pip python3-dev python3-venv build-essential nodejs yarn'
 zsh='zsh powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
-python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests'
+python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests' 
 network='ssh remmina net-tools'
 video='vlc'
 apps='calibre ranger sxiv hexchat chromium-browser google-chrome-stable'
