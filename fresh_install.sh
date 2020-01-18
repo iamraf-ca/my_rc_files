@@ -125,6 +125,7 @@ curl -o ~/.vimrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
 echo Add your user account to the docker group and to start on boot
 sudo groupadd docker
