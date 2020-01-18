@@ -81,9 +81,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Color Schemes
-" Color schemes work in conjunction with the basic color scheme that you are using.
-" Check out solarized for GUI mode, and Zenburn for terminal mode:
-"Plugin 'flazz/vim-colorschemes'
+Plugin 'arcticicestudio/nord-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -166,3 +164,6 @@ syntax on
 
 " Want to hide .pyc files? Then add the following line:
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" Set Nord colorscheme
+colorscheme nord
