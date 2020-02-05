@@ -92,6 +92,7 @@ sudo snap install telegram-desktop cheat kdenlive postman obs-studio insomnia re
 sudo snap install slack --classic
 sudo snap install code --classic
 sudo snap install skype --classic
+sudo snap install --classic heroku
 
 #echo Instaling pip packages
 sudo -H pip3 install virtualenv
