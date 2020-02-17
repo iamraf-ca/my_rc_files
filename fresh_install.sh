@@ -18,7 +18,7 @@ echo =====================
 # Packages to Install
 sudo apt-get install -y curl git
 echo Setting Packages to be installed
-developers='vim terminator htop p7zip-full zsh insomnia httpie gcc g++ make cmake ctags python3-pip python3-dev python3-venv build-essential nodejs yarn'
+developers='vim terminator htop p7zip-full zsh httpie gcc g++ make cmake ctags python3-pip python3-dev python3-venv build-essential nodejs'
 zsh='zsh powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
 python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests' 
 network='ssh remmina net-tools'
@@ -32,22 +32,14 @@ snaps='code'
 # Adding nodejs on source list
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
 
-# Adding yarn on source list
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-# Adding Balena Etcher on source list
-echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
-
 # Cloning my repositories
 read -n 1 -s -r -p "It's time to copy your ssh key to ~/.ssh, after press any key to continue"
 chmod 400 ~/.ssh/id_rsa #adding permission only for my user
 ssh-add ~/.ssh/id_rsa #adding the my key to ssh agent
 git config --global user.email "toguko@gmail.com"
 git config --global user.name "Rafael 'Toguko' Dias"
-mkdir GITHUB
-cd GITHUB
+mkdir ~/GITHUB
+cd ~/GITHUB
 curl -s https://api.github.com/users/toguko/repos | grep \"ssh_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
 # Clonning zsh-autosuggestion
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -56,7 +48,7 @@ cd ~/
 echo Setting up Repositories
 echo Setting DOCKER
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs)  stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
 
 echo Setting Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
@@ -88,14 +80,15 @@ sudo apt-get install -y $docker
 sudo apt-get install -y $gnome
 sudo apt-get install -y $neovim
 sudo apt-get install -y $vpn
-sudo snap install telegram-desktop cheat kdenlive postman obs-studio insomnia remmina 0ad supertuxkart
+sudo snap install telegram-desktop cheat kdenlive postman obs-studio insomnia remmina
 sudo snap install slack --classic
 sudo snap install code --classic
 sudo snap install skype --classic
-sudo snap install --classic heroku
+sudo snap install heroku --classic
 
 #echo Instaling pip packages
 sudo -H pip3 install virtualenv
+sudo -H pip3 install wheel
 
 # Installing Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
@@ -114,12 +107,11 @@ sudo usermod -s /usr/bin/zsh $(whoami)
 #curl -o ~/.config/i3/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/config
 #curl -o ~/.config/i3/i3blocks/i3blocks.conf --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/i3/i3blocks/i3blocks.conf
 
-
 echo Copying ZSH Config
 curl -o ~/.zshrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.zshrc
 
-#echo Copying Terminator Config
-#curl -o ~/.config/terminator/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/terminator/config
+echo Copying Terminator Config
+curl -o ~/.config/terminator/config --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.config/terminator/config
 
 echo Copying VIM Config
 curl -o ~/.vimrc --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.vimrc
