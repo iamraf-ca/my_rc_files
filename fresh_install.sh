@@ -125,6 +125,13 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl enable docker
 
+echo Setting Nordic Theme
+sudo mkdir /usr/share/themes/Nordic
+cd /usr/share/themes/Nordic
+git clone https://github.com/EliverLara/Nordic.git .
+gsettings set org.gnome.desktop.interface gtk-theme "Nordic"                                        gsettings set org.gnome.desktop.wm.preferences theme "Nordic" 
+cd
+
 echo Clean everything
 # Clean everything
 sudo apt-get -y autoremove && sudo apt-get clean
