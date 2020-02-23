@@ -18,7 +18,7 @@ echo =====================
 # Packages to Install
 sudo apt-get install -y curl git
 echo Setting Packages to be installed
-developers='vim terminator htop p7zip-full zsh httpie gcc g++ make cmake ctags python3-pip python3-dev python3-venv build-essential nodejs'
+developers='vim terminator htop p7zip-full zsh httpie gcc g++ make cmake ctags python3-pip python3-dev python3-venv libpq-dev build-essential nodejs'
 zsh='zsh powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
 python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests' 
 network='ssh remmina net-tools'
@@ -89,6 +89,7 @@ sudo snap install heroku --classic
 #echo Instaling pip packages
 sudo -H pip3 install virtualenv
 sudo -H pip3 install wheel
+sudo -H pip3 install --upgrade setuptools
 
 # Installing Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
