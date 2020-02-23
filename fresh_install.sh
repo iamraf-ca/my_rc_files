@@ -132,6 +132,10 @@ sudo git clone https://github.com/EliverLara/Nordic.git .
 gsettings set org.gnome.desktop.interface gtk-theme "Nordic"                                        gsettings set org.gnome.desktop.wm.preferences theme "Nordic" 
 cd
 
+
+echo Setting Font
+curl -o ~/.fonts --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.fonts
+
 echo Clean everything
 # Clean everything
 sudo apt-get -y autoremove && sudo apt-get clean
