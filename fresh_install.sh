@@ -128,7 +128,7 @@ sudo systemctl enable docker
 echo Setting Nordic Theme
 sudo mkdir /usr/share/themes/Nordic
 cd /usr/share/themes/Nordic
-git clone https://github.com/EliverLara/Nordic.git .
+sudo git clone https://github.com/EliverLara/Nordic.git .
 gsettings set org.gnome.desktop.interface gtk-theme "Nordic"                                        gsettings set org.gnome.desktop.wm.preferences theme "Nordic" 
 cd
 
