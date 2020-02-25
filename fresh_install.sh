@@ -48,7 +48,7 @@ cd ~/
 echo Setting up Repositories
 echo Setting DOCKER
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 echo Setting Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
@@ -130,12 +130,12 @@ echo Setting Nordic Theme
 sudo mkdir /usr/share/themes/Nordic
 cd /usr/share/themes/Nordic
 sudo git clone https://github.com/EliverLara/Nordic.git .
-gsettings set org.gnome.desktop.interface gtk-theme "Nordic"                                        gsettings set org.gnome.desktop.wm.preferences theme "Nordic" 
+gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
+gsettings set org.gnome.desktop.wm.preferences theme "Nordic" 
 cd
 
-
 echo Setting Font
-curl -o ~/.fonts --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.fonts
+curl -o ~/.fonts/Menlo_Powerline.ttf --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.fonts
 
 echo Clean everything
 # Clean everything
