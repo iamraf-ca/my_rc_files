@@ -54,6 +54,9 @@ echo Setting Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
+echo Papirus Icon
+sudo add-apt-repository ppa:papirus/papirus
+
 # Adding NordVPN
 cd Download
 sudo wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
@@ -132,10 +135,15 @@ cd /usr/share/themes/Nordic
 sudo git clone https://github.com/EliverLara/Nordic.git .
 gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
 gsettings set org.gnome.desktop.wm.preferences theme "Nordic" 
+gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 cd
 
 echo Setting Font
-curl -o ~/.fonts/Menlo_Powerline.ttf --create-dirs https://raw.githubusercontent.com/toguko/my_rc_files/master/.fonts
+mkdir ~/.fonts
+cd ~/.fonts
+curl 'https://github.com/toguko/my_rc_files/blob/master/.fonts/Menlo%20for%20Powerline.ttf?raw=true' > 'Menlo for Powerline.ttf'
+fc-cache -vf ~/.fonts
+cd
 
 echo Clean everything
 # Clean everything
