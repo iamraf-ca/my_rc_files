@@ -145,6 +145,23 @@ curl 'https://github.com/toguko/my_rc_files/blob/master/.fonts/Menlo%20for%20Pow
 fc-cache -vf ~/.fonts
 cd
 
+echo Blocking some sites
+echo ---------
+echo 	UOL
+echo ---------
+sudo sh -c 'echo "127.0.0.1 uol.com.br" >> /etc/hosts'
+
+echo ---------
+echo   GLOBO
+echo ---------
+sudo sh -c 'echo "127.0.0.1 globo.com" >> /etc/hosts'
+sudo sh -c 'echo "127.0.0.1 globo.com.br" >> /etc/hosts'
+echo ---------
+echo 	G1
+echo ---------
+sudo sh -c 'echo "127.0.0.1 g1.com" >> /etc/hosts'
+
+
 echo Clean everything
 # Clean everything
 sudo apt-get -y autoremove && sudo apt-get clean
