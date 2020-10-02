@@ -160,7 +160,8 @@ echo ---------
 echo 	G1
 echo ---------
 sudo sh -c 'echo "127.0.0.1 g1.com" >> /etc/hosts'
-
+sudo sh -c 'echo "127.0.0.1 g1.com.br" >> /etc/hosts'
+sudo sh -c 'echo "127.0.0.1 g1.globo.com" >> /etc/hosts'
 
 echo Clean everything
 # Clean everything
