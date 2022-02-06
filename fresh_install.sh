@@ -21,7 +21,7 @@ echo Setting Packages to be installed
 developers='vim terminator htop p7zip-full zsh httpie gcc g++ make cmake ctags python3-pip python3-dev python3-venv libpq-dev build-essential nodejs'
 zsh='zsh powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
 python_pip='docker-compose flake8 ipython isort jupyter jupyterlab pipenv pylint requests' 
-network='ssh remmina net-tools'
+network='ssh remmina net-tools network-manager-openvpn network-manager-openvpn-gnome'
 video='vlc'
 apps='calibre ranger sxiv hexchat chromium-browser google-chrome-stable chrome-gnome-shell'
 i3='i3 i3-wm i3blocks i3lock i3status powerline fonts-powerline zsh-theme-powerlevel9k zsh-syntax-highlighting'
@@ -151,18 +151,14 @@ curl 'https://github.com/toguko/my_rc_files/blob/master/.fonts/Menlo%20for%20Pow
 fc-cache -vf ~/.fonts
 
 echo Instaling Pyenv
-cd
+cd ~/.GITHUB
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 
-echo Clean everything
-# Clean everything
-sudo apt-get -y autoremove && sudo apt-get clean
-
 # Installing some pentest tools
-cd
+cd ~/GITHUB
 echo Installing httpx
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
@@ -175,3 +171,23 @@ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t
 echo Installing Osmedeus
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/osmedeus/osmedeus-base/master/install.sh)"
 
+echo Installing Masscan
+cd ~/GITHUB
+git clone https://github.com/robertdavidgraham/masscan
+cd masscan
+make
+make install
+cd
+
+echo Clean everything
+# Clean everything
+sudo apt-get -y autoremove && sudo apt-get clean
+
+echo -------------------------------------------------------------------------------------
+echo Open VPN GUI installed, do not forge to mark the option:
+echo "Use this connection only for resources on its network" on the IPV4 and IPV6 tabs
+echo -------------------------------------------------------------------------------------
+
+echo -------------------------------------------------------------------------------------
+echo FRESH INSTALL FINISHED, ENJOY YOUR NEW MACHINE.
+echo -------------------------------------------------------------------------------------
