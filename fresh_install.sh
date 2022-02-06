@@ -28,6 +28,8 @@ i3='i3 i3-wm i3blocks i3lock i3status powerline fonts-powerline zsh-theme-powerl
 docker='apt-transport-https ca-certificates software-properties-common gnupg-agent docker-ce'
 vpn='nordvpn'
 snaps='code'
+utils='xclip'
+pentest_tools='nikto dirsearch'
 
 # Adding nodejs on source list
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
@@ -83,18 +85,22 @@ sudo apt-get install -y $docker
 sudo apt-get install -y $gnome
 sudo apt-get install -y $neovim
 sudo apt-get install -y $vpn
-sudo snap install telegram-desktop cheat kdenlive postman obs-studio insomnia remmina
+sudo apt-get install -y $utils
+sudo apt-get install -y $pentest_tools
+
+echo Installing tools from snapcraft
+sudo snap install telegram-desktop cheat insomnia remmina amass
 sudo snap install slack --classic
 sudo snap install code --classic
 sudo snap install skype --classic
 sudo snap install heroku --classic
 
-#echo Instaling pip packages
+echo Instaling pip packages
 sudo -H pip3 install virtualenv
 sudo -H pip3 install wheel
 sudo -H pip3 install --upgrade setuptools
 
-# Installing Oh-my-zsh
+echo Installing Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 chsh -s /bin/zsh
 sudo usermod -s /usr/bin/zsh $(whoami)
@@ -129,51 +135,43 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl enable docker
 
-echo Setting Nordic Theme
-sudo mkdir /usr/share/themes/Nordic
-cd /usr/share/themes/Nordic
-sudo git clone https://github.com/EliverLara/Nordic.git .
-gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
-gsettings set org.gnome.desktop.wm.preferences theme "Nordic" 
-gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-cd
+#echo Setting Nordic Theme
+#sudo mkdir /usr/share/themes/Nordic
+#cd /usr/share/themes/Nordic
+#sudo git clone https://github.com/EliverLara/Nordic.git .
+#gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
+#gsettings set org.gnome.desktop.wm.preferences theme "Nordic" 
+#gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 
 echo Setting Font
+cd
 mkdir ~/.fonts
 cd ~/.fonts
 curl 'https://github.com/toguko/my_rc_files/blob/master/.fonts/Menlo%20for%20Powerline.ttf?raw=true' > 'Menlo for Powerline.ttf'
 fc-cache -vf ~/.fonts
-cd
-
 
 echo Instaling Pyenv
+cd
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 
-echo Blocking some sites
-echo ---------
-echo 	UOL
-echo ---------
-sudo sh -c 'echo "127.0.0.1 uol.com.br" >> /etc/hosts'
-
-echo ---------
-echo   GLOBO
-echo ---------
-sudo sh -c 'echo "127.0.0.1 globo.com" >> /etc/hosts'
-sudo sh -c 'echo "127.0.0.1 globo.com.br" >> /etc/hosts'
-echo ---------
-echo 	G1
-echo ---------
-sudo sh -c 'echo "127.0.0.1 g1.com" >> /etc/hosts'
-sudo sh -c 'echo "127.0.0.1 g1.com.br" >> /etc/hosts'
-sudo sh -c 'echo "127.0.0.1 g1.globo.com" >> /etc/hosts'
-
 echo Clean everything
 # Clean everything
 sudo apt-get -y autoremove && sudo apt-get clean
 
-echo ====================
-echo  ALL FINISHED
-echo ====================
+# Installing some pentest tools
+cd
+echo Installing httpx
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+
+echo Installing Nuclei
+go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+
+echo Installing Metasploit
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+
+echo Installing Osmedeus
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/osmedeus/osmedeus-base/master/install.sh)"
+
